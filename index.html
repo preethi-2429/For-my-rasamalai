@@ -1,55 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love!</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>For My Rasamalai 💖</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div class="app">
-    
-<!-- 🔐 LOCK SCREEN  (FIRST) -->
-<div id="lock" class="page">
-    <h1>For My Rasamalai 💖</h1>
 
-    <div class="boxes">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+<!-- FLOATING HEARTS -->
+<div class="hearts"></div>
+
+<!-- LOCK SCREEN -->
+<div id="lockscreen" class="screen">
+  <div class="glass">
+
+    <h2 class="title">Enter Passcode</h2>
+    <p class="sub">For someone special 💖</p>
+
+    <div id="dots"></div>
+
+    <div class="dialpad">
+      <button onclick="press(1)">1</button>
+      <button onclick="press(2)">2</button>
+      <button onclick="press(3)">3</button>
+      <button onclick="press(4)">4</button>
+      <button onclick="press(5)">5</button>
+      <button onclick="press(6)">6</button>
+      <button onclick="press(7)">7</button>
+      <button onclick="press(8)">8</button>
+      <button onclick="press(9)">9</button>
+      <button onclick="clearCode()">⌫</button>
+      <button onclick="press(0)">0</button>
+      <button onclick="submitCode()">✔</button>
     </div>
 
-    <div class="dial">
-        <button onclick="press(1)">1</button>
-        <button onclick="press(2)">2</button>
-        <button onclick="press(3)">3</button>
-        <button onclick="press(4)">4</button>
-        <button onclick="press(5)">5</button>
-        <button onclick="press(6)">6</button>
-        <button onclick="press(7)">7</button>
-        <button onclick="press(8)">8</button>
-        <button onclick="press(9)">9</button>
-        <button onclick="press(0)">0</button>
-    </div>
+    <p id="msg"></p>
+
+  </div>
 </div>
 
-<!-- 🏠 HOME  -->
-<div id="home" class="page hidden">
-    <div class="glass">
-        <h1>Unakaga konjam gifts iruku open panni enanu paaru 😘</h1>
+<!-- GIFT FLOW -->
+<div id="giftpage" class="hidden">
 
-        <button onclick="openGift(1)">🎂 Birthday</button>
-        <button onclick="openGift(2)">💌 Message</button>
-        <button onclick="openGift(3)">😉 Surprise</button>
-    </div>
+  <div class="gift-box">
+    <h1>🎁 Welcome My Love</h1>
+    <p>Unlocked just for you💋</p>
+
+    <button onclick="nextStep()">Open Gift</button>
+  </div>
+
 </div>
 
-<!-- 🎁 GIFT PAGE  -->
-<div id="giftPage" class="page hidden">
-    <div class="glass" id="giftContent"></div>
+<!-- CAKE PAGE -->
+<div id="cakepage" class="hidden">
+  <h1>🎂 Cake for You</h1>
 </div>
+
+<!-- MESSAGE PAGE -->
+<div id="messagepage" class="hidden">
+  <div class="card">
+    <h2>💌 A Message</h2>
+    <p>
+      Hellloooo My Dear Rasamalaiii🥹🤍 Happppyyy happpyyy 19th birthday thangam. May this year bring all the blessings and happiness to you. Epayume ne happy ah irukanum en kuda irukanum. Andddd unga sirippuku na adimai so sirichune sandhosama iru ma🫂❤️. Ne un vazhkaila edhu ketalum kedaikanum. Im soooo soooo proud of you my champ. Ne expect pannadhu elame un life la kedaikum. Unaku pudichadhu elame vangitharuven.Na panna mistakes lam...ena panna poren nu therila..ana una seri paniruven epdiyachu.Enaya vitutu poyradha hrithik , Enaku unna vitta yarum ila da🥺. Aprmmmm Unna romba romba romba romba romba pudikum💗🫂. Kalyanam panikanum nu aasa padren😗. I LOVE YOU SO SO SO SO MUCH champ🌹 Once againnn Happpiestt birthday😘.You are my rasamalai… My happiness, My world🌎💖
+    </p>
+
+    <button onclick="nextStep2()">Next</button>
+  </div>
+</div>
+
+<!-- MESSI PAGE -->
+<div id="messipage" class="hidden">
+  <h1>⚽ Surprise Message</h1>
+  <p>Hi Hrithik... it's Leo. Happy birthday, from the bottom of my heart. I want to thank you for all the love. I hope you have an amazing day... Sending you a big hug. Visca el Barça!💙❤️</p>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
