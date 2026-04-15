@@ -92,13 +92,13 @@ function openGift(n){
     // ⚽ GIFT 3 → MESSI AUDIO
     if(n === 3){
         c.innerHTML = `
-        <img src="your-photo.jpg" class="miniPhoto">
+        <img src="messii.jpg" class="miniPhoto">
 
         <p>Someone special has a message for you… 👀⚽</p>
         <p id="subtitle" style="min-height:40px;"></p>
 
         <audio id="messiAudio">
-            <source src="messi-voice.mp3" type="audio/mpeg">
+            <source src="messi.mp3" type="audio/mpeg">
         </audio>
 
         <button onclick="playMessi()">▶ Play Message</button>
