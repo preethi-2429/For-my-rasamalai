@@ -1,236 +1,157 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
 
-/* 🌸 BODY */
 body{
     margin:0;
     font-family:'Baloo 2', cursive;
-    background: radial-gradient(circle at top,#ffdde1,#ee9ca7,#ff6b81);
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
+    background:black;
     color:white;
 }
 
-/* 📱 4:3 APP FRAME */
+/* APP */
 .app{
     width:768px;
     height:576px;
-    background:rgba(255,255,255,0.12);
-    backdrop-filter:blur(25px);
     border-radius:30px;
-    box-shadow:0 15px 50px rgba(0,0,0,0.4);
     overflow:hidden;
     position:relative;
 }
 
-/* 🌸 FLOATING HEARTS */
-.hearts{
+/* INTRO */
+.intro{
     position:absolute;
     width:100%;
     height:100%;
-    pointer-events:none;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+    animation:fadeOut 3s forwards;
 }
 
+.introText{
+    font-size:28px;
+    animation:fadeIn 2s;
+}
+
+@keyframes fadeOut{
+    0%{opacity:1;}
+    100%{opacity:0; visibility:hidden;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* PHOTO */
+.photo-bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url("your-photo.jpg") center/cover;
+    filter:blur(8px);
+    animation:zoom 10s infinite alternate;
+}
+
+@keyframes zoom{
+    from{transform:scale(1.1);}
+    to{transform:scale(1.2);}
+}
+
+/* HEARTS */
 .hearts::before{
-    content:"💖 💕 💖 💕 💖 💕 💖 💕";
+    content:"✨😘💗🎀🤍🫶🏻";
     position:absolute;
     width:100%;
     text-align:center;
-    font-size:28px;
     opacity:0.2;
-    animation:floatHearts 12s linear infinite;
+    animation:float 10s infinite linear;
 }
 
-@keyframes floatHearts{
-    0%{transform:translateY(100%);}
-    100%{transform:translateY(-120%);}
+@keyframes float{
+    from{transform:translateY(100%);}
+    to{transform:translateY(-120%);}
 }
 
-/* 📄 PAGES */
+/* PAGE */
 .page{
     position:absolute;
     width:100%;
     height:100%;
-    display:none;
+    display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    padding:20px;
 }
 
-.page:not(.hidden){
-    display:flex;
-}
-
-.hidden{
-    display:none !important;
-}
-
-/* 🧊 GLASS CARD */
+/* GLASS */
 .glass{
     background:rgba(255,255,255,0.2);
-    backdrop-filter:blur(20px);
     padding:25px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    text-align:center;
-    width:80%;
-    max-width:350px;
-    animation:fade 0.5s ease;
+    border-radius:20px;
+    backdrop-filter:blur(20px);
 }
 
-@keyframes fade{
-    from{opacity:0; transform:scale(0.9);}
-    to{opacity:1; transform:scale(1);}
-}
-
-/* 🔐 PASSCODE */
-.box{
-    width:14px;
-    height:14px;
-    border:2px solid white;
-    border-radius:50%;
-    margin:5px;
-    display:inline-block;
-}
-
-/* 🔢 DIAL */
-.dial{
-    margin-top:10px;
-}
-
-.dial button{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    font-size:18px;
-}
-
-/* 🎁 BUTTON */
+/* BUTTON */
 button{
-    margin:8px;
-    padding:12px 18px;
-    border:none;
-    border-radius:18px;
-    background:linear-gradient(135deg,#ff4d6d,#ff85a2);
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-/* 📱 INPUT */
-input{
-    padding:10px;
-    border-radius:10px;
-    border:none;
-    text-align:center;
     margin:10px;
-    font-size:16px;
+    padding:10px 20px;
+    border:none;
+    border-radius:15px;
+    background:#ff4d6d;
+    color:white;
 }
 
-/* 🎂 CAKE AREA */
-#cakeArea{
-    margin-top:15px;
-}
-
-/* 🎂 3D CAKE */
+/* CAKE */
 .cake3d{
-    position:relative;
     width:200px;
     margin:20px auto;
-    perspective:800px;
 }
 
-/* 🍰 CAKE LAYERS */
 .layer{
     width:200px;
     height:40px;
-    background:#ff85a2;
     border-radius:50%;
+    background:#ff85a2;
     margin-top:-15px;
-    box-shadow:0 5px 10px rgba(0,0,0,0.2);
 }
 
-.middle{
-    background:#ff6b81;
-}
+.middle{background:#ff6b81;}
+.bottom{background:#ff4d6d;}
 
-.bottom{
-    background:#ff4d6d;
-}
+.top{display:flex;flex-wrap:wrap;justify-content:center;}
 
-/* 🎂 TOP (CANDLES HOLDER) */
-.top{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-bottom:10px;
-}
-
-/* 🕯️ CANDLE */
 .candle{
-    position:relative;
-    width:6px;
-    height:20px;
-    background:white;
-    border-radius:3px;
+    width:6px;height:20px;background:white;margin:2px;position:relative;
 }
 
-/* 🔥 FLAME */
 .flame{
     position:absolute;
     top:-10px;
-    left:-3px;
-    width:12px;
-    height:12px;
-    background: radial-gradient(circle, #fff 20%, orange 60%, transparent 70%);
+    width:10px;height:10px;
+    background:orange;
     border-radius:50%;
     animation:flicker 0.2s infinite alternate;
 }
 
-/* 🔥 REALISTIC FLICKER */
 @keyframes flicker{
-    0%{transform:scale(1) translateY(0);}
-    50%{transform:scale(1.2) translateY(-2px);}
-    100%{transform:scale(0.9) translateY(1px);}
+    from{transform:scale(1);}
+    to{transform:scale(1.3);}
 }
 
-/* 💨 BLOW EFFECT */
-.flame.off{
-    opacity:0;
-    transform:scale(0);
-    transition:0.5s ease;
+.smoke{
+    width:8px;height:8px;
+    background:gray;
+    border-radius:50%;
+    animation:smokeUp 1s forwards;
 }
 
-/* ⚽ SUBTITLE */
-#subtitle{
-    margin-top:10px;
-    font-size:16px;
-    min-height:40px;
-}
-
-/* 💖 TEXT */
-h1, h2{
-    font-weight:700;
-    letter-spacing:1px;
-}
-
-/* 📱 MOBILE */
-@media (max-width:800px){
-    .app{
-        width:95vw;
-        height:calc(95vw * 0.75);
-    }
-
-    .glass{
-        width:90%;
-    }
+@keyframes smokeUp{
+    from{opacity:1; transform:translateY(0);}
+    to{opacity:0; transform:translateY(-20px);}
 }
