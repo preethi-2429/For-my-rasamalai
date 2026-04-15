@@ -1,157 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+let bgMusic = new Audio("song.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0;
 
-body{
-    margin:0;
-    font-family:'Baloo 2', cursive;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:black;
-    color:white;
+// 🎵 FADE IN MUSIC
+function startMusic(){
+    bgMusic.play();
+    let v = 0;
+    let fade = setInterval(()=>{
+        if(v < 0.25){
+            v += 0.01;
+            bgMusic.volume = v;
+        } else clearInterval(fade);
+    },200);
 }
 
-/* APP */
-.app{
-    width:768px;
-    height:576px;
-    border-radius:30px;
-    overflow:hidden;
-    position:relative;
+// 🎬 AFTER INTRO
+setTimeout(()=>{
+    document.getElementById("login").classList.remove("hidden");
+},3000);
+
+// 📱 SWIPE UP UNLOCK
+let startY = 0;
+
+document.addEventListener("touchstart",e=>{
+    startY = e.touches[0].clientY;
+});
+
+document.addEventListener("touchend",e=>{
+    let endY = e.changedTouches[0].clientY;
+
+    if(startY - endY > 80){
+        unlock();
+    }
+});
+
+function unlock(){
+    startMusic();
+
+    // ❤️ HEART EXPLOSION
+    for(let i=0;i<20;i++){
+        let h = document.createElement("div");
+        h.innerText="❤️";
+        h.style.position="absolute";
+        h.style.left="50%";
+        h.style.top="50%";
+        h.style.animation="float 2s ease";
+        document.body.appendChild(h);
+
+        setTimeout(()=>h.remove(),2000);
+    }
+
+    document.getElementById("login").style.display="none";
+    document.getElementById("home").style.display="flex";
 }
 
-/* INTRO */
-.intro{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:black;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:10;
-    animation:fadeOut 3s forwards;
+// 🎁 GIFTS
+let currentGift=1;
+
+function openGift(n){
+    currentGift=n;
+    document.getElementById("giftPage").style.display="flex";
+    let c=document.getElementById("giftContent");
+
+    if(n===1){
+        c.innerHTML=`
+        <input id="ageInput" placeholder="Age">
+        <button onclick="cake()">Create Cake</button>
+        <div id="cakeArea"></div>`;
+    }
+
+    if(n===2){
+        c.innerHTML=`<p>I love you di patttuma💋🥹</p>`;
+    }
+
+    if(n===3){
+        c.innerHTML=`<p>A Bug Surprise🌝 </p>`;
+    }
 }
 
-.introText{
-    font-size:28px;
-    animation:fadeIn 2s;
+// 🎂 CAKE
+function cake(){
+    let age=document.getElementById("ageInput").value;
+    let candles="";
+
+    for(let i=0;i<age;i++){
+        candles+=`<div class="candle"><div class="flame"></div></div>`;
+    }
+
+    document.getElementById("cakeArea").innerHTML=`
+    <div class="cake3d">
+        <div class="top">${candles}</div>
+        <div class="layer"></div>
+        <div class="layer middle"></div>
+        <div class="layer bottom"></div>
+    </div>
+    <button onclick="blow()">Blow 💨</button>`;
 }
 
-@keyframes fadeOut{
-    0%{opacity:1;}
-    100%{opacity:0; visibility:hidden;}
-}
+// 💨 BLOW + SMOKE
+function blow(){
+    document.querySelectorAll(".flame").forEach(f=>{
+        f.style.display="none";
 
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-/* PHOTO */
-.photo-bg{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:url("your-photo.jpg") center/cover;
-    filter:blur(8px);
-    animation:zoom 10s infinite alternate;
-}
-
-@keyframes zoom{
-    from{transform:scale(1.1);}
-    to{transform:scale(1.2);}
-}
-
-/* HEARTS */
-.hearts::before{
-    content:"💗✨🤍🌹💕😘";
-    position:absolute;
-    width:100%;
-    text-align:center;
-    opacity:0.2;
-    animation:float 10s infinite linear;
-}
-
-@keyframes float{
-    from{transform:translateY(100%);}
-    to{transform:translateY(-120%);}
-}
-
-/* PAGE */
-.page{
-    position:absolute;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-}
-
-/* GLASS */
-.glass{
-    background:rgba(255,255,255,0.2);
-    padding:25px;
-    border-radius:20px;
-    backdrop-filter:blur(20px);
-}
-
-/* BUTTON */
-button{
-    margin:10px;
-    padding:10px 20px;
-    border:none;
-    border-radius:15px;
-    background:#ff4d6d;
-    color:white;
-}
-
-/* CAKE */
-.cake3d{
-    width:200px;
-    margin:20px auto;
-}
-
-.layer{
-    width:200px;
-    height:40px;
-    border-radius:50%;
-    background:#ff85a2;
-    margin-top:-15px;
-}
-
-.middle{background:#ff6b81;}
-.bottom{background:#ff4d6d;}
-
-.top{display:flex;flex-wrap:wrap;justify-content:center;}
-
-.candle{
-    width:6px;height:20px;background:white;margin:2px;position:relative;
-}
-
-.flame{
-    position:absolute;
-    top:-10px;
-    width:10px;height:10px;
-    background:orange;
-    border-radius:50%;
-    animation:flicker 0.2s infinite alternate;
-}
-
-@keyframes flicker{
-    from{transform:scale(1);}
-    to{transform:scale(1.3);}
-}
-
-.smoke{
-    width:8px;height:8px;
-    background:gray;
-    border-radius:50%;
-    animation:smokeUp 1s forwards;
-}
-
-@keyframes smokeUp{
-    from{opacity:1; transform:translateY(0);}
-    to{opacity:0; transform:translateY(-20px);}
+        let s=document.createElement("div");
+        s.className="smoke";
+        f.parentElement.appendChild(s);
+    });
 }
