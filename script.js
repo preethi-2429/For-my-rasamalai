@@ -1,170 +1,157 @@
-// 🔐 PASSCODE
-let val = "";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
 
-// 🎵 BACKGROUND MUSIC
-let bgMusic = new Audio("song.mp3");
-bgMusic.loop = true;
-bgMusic.volume = 0.25;
-
-// autoplay after first click
-document.addEventListener("click", () => {
-    bgMusic.play().catch(()=>{});
-}, { once:true });
-
-// 🔁 NAVIGATION
-function goTo(page){
-    document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
-    document.getElementById(page).classList.remove("hidden");
+body{
+    margin:0;
+    font-family:'Baloo 2', cursive;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:black;
+    color:white;
 }
 
-// 🔢 PASSCODE INPUT
-function press(num){
-    val += num;
-
-    let boxes = document.querySelectorAll(".box");
-
-    boxes.forEach((b, i) => {
-        b.style.background = i < val.length ? "#fff" : "transparent";
-    });
-
-    if(val === "2429"){
-        goTo("home");
-    }
-
-    if(val.length >= 4 && val !== "2429"){
-        alert("Wrong password pattuma😓");
-        val = "";
-        boxes.forEach(b => b.style.background = "transparent");
-    }
+/* APP */
+.app{
+    width:768px;
+    height:576px;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
 }
 
-// 🎁 GIFT SYSTEM
-let currentGift = 1;
-
-function openGift(n){
-    currentGift = n;
-    goTo("giftPage");
-
-    let content = document.getElementById("giftContent");
-
-    // 🎂 CAKE
-    if(n === 1){
-        content.innerHTML = `
-        <h2>Enter Age 🎂</h2>
-
-        <input id="ageInput" type="number" placeholder="Age">
-        <button onclick="generateCake()">Create Cake</button>
-
-        <div id="cakeArea"></div>
-        `;
-    }
-
-    // 💌 MESSAGE
-    else if(n === 2){
-        content.innerHTML = `
-        <p>
-        Hellloooo My Dear Rasamalaiii🥹🤍 Happppyyy happpyyy 19th birthday thangam. May this year bring all the blessings and happiness to you. Epayume ne happy ah irukanum en kuda irukanum. Andddd unga sirippuku na adimai so sirichune sandhosama iru ma🫂❤️. Ne un vazhkaila edhu ketalum kedaikanum. Im soooo soooo proud of you my champ. Ne expect pannadhu elame un life la kedaikum. Unaku pudichadhu elame vangitharuven.Na panna mistakes lam...ena panna poren nu therila..ana una seri paniruven epdiyachu.Enaya vitutu poyradha hrithik , Enaku unna vitta yarum ila da🥺. Aprmmmm Unna romba romba romba romba romba pudikum💗🫂. Kalyanam panikanum nu aasa padren😗. I LOVE YOU SO SO SO SO MUCH champ🌹 Once againnn Happpiestt birthday😘
-        </p>
-        `;
-    }
-
-    // ⚽ MESSI
-    else if(n === 3){
-        content.innerHTML = `
-        <p>Someone special has a message 👀⚽</p>
-        <p id="subtitle"></p>
-
-        <audio id="messiAudio" controls>
-            <source src="messi.mp3" type="audio/mpeg">
-        </audio>
-
-        <button onclick="playMessi()">▶ Play</button>
-        `;
-    }
+/* INTRO */
+.intro{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+    animation:fadeOut 3s forwards;
 }
 
-// 🎂 CREATE 3D CAKE
-function generateCake(){
-    let age = document.getElementById("ageInput").value;
-    let cakeArea = document.getElementById("cakeArea");
-
-    if(!age || age <= 0){
-        alert("Enter your age❤️");
-        return;
-    }
-
-    let candles = "";
-
-    for(let i=0; i<age; i++){
-        candles += `
-        <div class="candle">
-            <div class="flame"></div>
-        </div>`;
-    }
-
-    cakeArea.innerHTML = `
-        <div class="cake3d">
-            <div class="top">${candles}</div>
-            <div class="layer"></div>
-            <div class="layer middle"></div>
-            <div class="layer bottom"></div>
-        </div>
-
-        <button onclick="blowCandles()">Blow Candles 💨</button>
-    `;
+.introText{
+    font-size:28px;
+    animation:fadeIn 2s;
 }
 
-// 💨 BLOW CANDLES
-function blowCandles(){
-    document.querySelectorAll(".flame").forEach(f => {
-        f.classList.add("off");
-    });
+@keyframes fadeOut{
+    0%{opacity:1;}
+    100%{opacity:0; visibility:hidden;}
 }
 
-// ⚽ MESSI SUBTITLES
-function playMessi(){
-    let audio = document.getElementById("messiAudio");
-    let sub = document.getElementById("subtitle");
-
-    audio.play();
-
-    audio.ontimeupdate = ()=>{
-        let t = audio.currentTime;
-
-        if(t < 3) sub.innerText = "Hi Hrithik... it's Leo.";
-        else if(t < 7) sub.innerText = "Happy birthday!, from the bottom of the heart";
-        else if(t < 12) sub.innerText = ".I want to thank you for all the love.I hope you have an amazing day.Sending you a big hug";
-        else sub.innerText = "Visca el Barça!💙❤️";
-    };
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-// 📱 SWIPE GESTURE
-let startX = 0;
-
-document.addEventListener("touchstart", e => {
-    startX = e.touches[0].clientX;
-});
-
-document.addEventListener("touchend", e => {
-    let endX = e.changedTouches[0].clientX;
-
-    if(startX - endX > 50){
-        nextGift();
-    }
-
-    if(endX - startX > 50){
-        prevGift();
-    }
-});
-
-function nextGift(){
-    currentGift++;
-    if(currentGift > 3) currentGift = 1;
-    openGift(currentGift);
+/* PHOTO */
+.photo-bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url("your-photo.jpg") center/cover;
+    filter:blur(8px);
+    animation:zoom 10s infinite alternate;
 }
 
-function prevGift(){
-    currentGift--;
-    if(currentGift < 1) currentGift = 3;
-    openGift(currentGift);
+@keyframes zoom{
+    from{transform:scale(1.1);}
+    to{transform:scale(1.2);}
+}
+
+/* HEARTS */
+.hearts::before{
+    content:"💗✨🤍🌹💕😘";
+    position:absolute;
+    width:100%;
+    text-align:center;
+    opacity:0.2;
+    animation:float 10s infinite linear;
+}
+
+@keyframes float{
+    from{transform:translateY(100%);}
+    to{transform:translateY(-120%);}
+}
+
+/* PAGE */
+.page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* GLASS */
+.glass{
+    background:rgba(255,255,255,0.2);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(20px);
+}
+
+/* BUTTON */
+button{
+    margin:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:15px;
+    background:#ff4d6d;
+    color:white;
+}
+
+/* CAKE */
+.cake3d{
+    width:200px;
+    margin:20px auto;
+}
+
+.layer{
+    width:200px;
+    height:40px;
+    border-radius:50%;
+    background:#ff85a2;
+    margin-top:-15px;
+}
+
+.middle{background:#ff6b81;}
+.bottom{background:#ff4d6d;}
+
+.top{display:flex;flex-wrap:wrap;justify-content:center;}
+
+.candle{
+    width:6px;height:20px;background:white;margin:2px;position:relative;
+}
+
+.flame{
+    position:absolute;
+    top:-10px;
+    width:10px;height:10px;
+    background:orange;
+    border-radius:50%;
+    animation:flicker 0.2s infinite alternate;
+}
+
+@keyframes flicker{
+    from{transform:scale(1);}
+    to{transform:scale(1.3);}
+}
+
+.smoke{
+    width:8px;height:8px;
+    background:gray;
+    border-radius:50%;
+    animation:smokeUp 1s forwards;
+}
+
+@keyframes smokeUp{
+    from{opacity:1; transform:translateY(0);}
+    to{opacity:0; transform:translateY(-20px);}
 }
