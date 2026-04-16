@@ -117,7 +117,8 @@ function createCake() {
     let candle = document.createElement("div");
     candle.className = "candle";
 
-    candle.style.left = (10 + i * 10) + "px";
+    candle.style.left = Math.random() * 180 + "px";
+candle.style.top = (-20 - Math.random() * 10) + "px";
 
     let flame = document.createElement("div");
     flame.className = "flame";
@@ -136,7 +137,8 @@ function blowCandles() {
   flames.forEach(f => f.remove());
 
   setTimeout(() => {
-    alert("May all your wish comes true with success 🥺💙");
+    document.getElementById("wishMsg").innerText =
+  "May all your wishes come true with success 🥺💙";
   }, 300);
 }
 
