@@ -12,135 +12,73 @@
 
 <body>
 
+<div class="bg"></div>
+<div class="overlay"></div>
+
 <!-- 📖 BOOK CONTAINER -->
 <div class="book" id="book">
 
-  <!-- 🔐 PAGE 1 (LOCK) -->
-  <div class="page active" id="page1">
-
-    <div class="bg"></div>
-    <div class="overlay"></div>
-
-    <div class="container">
-      <h2 class="title">
-        This greeting card is specially made for you by your love 💗<br>
-        Unlock to reveal it
-      </h2>
-
-      <div class="pin-box">
-        <div class="digit" id="d1"></div>
-        <div class="digit" id="d2"></div>
-        <div class="digit" id="d3"></div>
-        <div class="digit" id="d4"></div>
-      </div>
-
-      <p id="error" class="error"></p>
-
-      <div class="keypad">
-        <button onclick="press(1)">1</button>
-        <button onclick="press(2)">2</button>
-        <button onclick="press(3)">3</button>
-        <button onclick="press(4)">4</button>
-        <button onclick="press(5)">5</button>
-        <button onclick="press(6)">6</button>
-        <button onclick="press(7)">7</button>
-        <button onclick="press(8)">8</button>
-        <button onclick="press(9)">9</button>
-        <button onclick="clearPin()">⌫</button>
-        <button onclick="press(0)">0</button>
-        <button onclick="checkPin()">✔</button>
-      </div>
-
-      <p class="hint">Hint: Its our password 🌹</p>
-
-      <button id="nextBtn" class="next hidden" onclick="goPage2()">Next ➝</button>
-    </div>
+<!-- 🔐 PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="container">
+    <!-- your lock content -->
   </div>
-
-  <!-- 💌 PAGE 2 -->
-  <div class="page" id="page2">
-
-    <div class="container">
-      <h2>
-        Unakaga na konjam gifts lam ready panniruken 💗<br>
-        I hope it'll make you happy thango 🥹
-      </h2>
-
-      <div class="nav-buttons">
-        <button onclick="goBack()">⬅ Back</button>
-        <button onclick="goNext()">Next ➝</button>
-      </div>
-    </div>
-
-  </div>
-
 </div>
-<!-- 🎁 PAGE 3 (GIFTS) -->
-<div class="page" id="page3">
 
+<!-- 💌 PAGE 2 -->
+<div class="page" id="page2">
+  <div class="container">
+    <h2>Unakaga na konjam gifts lam ready panniruken 💗</h2>
+
+    <div class="nav-buttons">
+      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="goNext()">Next ➝</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🎁 PAGE 3 -->
+<div class="page" id="page3">
   <div class="container">
 
     <h2>Open your surprises thango 💖</h2>
-<!-- 💌 PAGE 4 (LETTER) -->
+
+    <div class="gifts">
+      <div class="gift" onclick="openGift(1)">🎁</div>
+      <div class="gift" onclick="openGift(2)">🎁</div>
+      <div class="gift" onclick="openGift(3)">🎁</div>
+    </div>
+
+    <div class="nav-buttons">
+      <button onclick="backToPage2()">⬅ Back</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- 💌 PAGE 4 -->
 <div class="page" id="page4">
-
   <div class="container">
-
     <div class="letter">
-
       <h2>For My Rasamalai 💖</h2>
-
-      <p>
-        Hellloooo My Dear Rasamalaiii 🥹🤍 <br><br>
-
-        Happppyyy happpyyy 19th birthday thangam 🎂💖  
-        May this year bring all the blessings and happiness to you.  
-        Epayume ne happy ah irukanum en kuda irukanum 🫂❤️ <br><br>
-
-        Andddd unga sirippuku na adimai 😭  
-        So sirichune sandhosama iru ma 💞 <br><br>
-
-        Ne un vazhkaila edhu ketalum kedaikanum.  
-        Im soooo soooo proud of you my champ 💪💖  
-        Ne expect pannadhu elame un life la kedaikum ✨ <br><br>
-
-        Unaku pudichadhu elame vangitharuven 🥹  
-        Na panna mistakes lam... ena panna poren nu therila...  
-        Ana una seri paniruven epdiyachu 💔 <br><br>
-
-        Enaya vitutu poyradha hrithik 🥺  
-        Enaku unna vitta yarum ila da... <br><br>
-
-        Aprmmmm... Unna romba romba romba romba romba pudikum 💗🫂  
-        Kalyanam panikanum nu aasa padren 😗💍 <br><br>
-
-        You are my rasamalai, my happiness, my world 🌍💖  
-        I LOVE YOU SO SO SO SO MUCH champ 🌹 <br><br>
-
-        Once againnn Happpiestt birthday 😘
-      </p>
-
+      <p>...your text...</p>
     </div>
 
     <div class="nav-buttons">
       <button onclick="backToGifts()">⬅ Back</button>
     </div>
-
   </div>
 </div>
-<!-- 🎂 PAGE 5 (CAKE) -->
-<div class="page" id="page5">
 
+<!-- 🎂 PAGE 5 -->
+<div class="page" id="page5">
   <div class="container">
 
     <h2>Make a wish and blow the candle love 🥹</h2>
 
-    <!-- AGE INPUT -->
-    <input type="number" id="ageInput" placeholder="Enter age" class="age-box">
-
+    <input type="number" id="ageInput" class="age-box">
     <button onclick="createCake()">Create Cake 🎂</button>
 
-    <!-- CAKE AREA -->
     <div id="cakeArea"></div>
 
     <div class="nav-buttons">
@@ -149,24 +87,23 @@
 
   </div>
 </div>
-    <!-- ⚽ PAGE 6 (MESSI) -->
-<div class="page" id="page6">
 
+<!-- ⚽ PAGE 6 -->
+<div class="page" id="page6">
   <div class="container">
 
     <h2>Someone special has a wish for you ma 🤭</h2>
-
     <button onclick="playMessi()">▶ Play Audio</button>
 
-    <!-- TEXT DISPLAY -->
-    <div id="messiText" class="messi-text"></div>
+    <div id="messiText"></div>
 
     <div class="nav-buttons">
       <button onclick="backToGiftsFromMessi()">⬅ Back</button>
-      <button onclick="goHome()">🏠 Home</button>
-    </div>
+      <button onclick="goHome()">Home</button>
 
-  </div>
+</div>
+
+</div> 
 </div>
 
 <!-- AUDIO -->
