@@ -53,7 +53,9 @@ function wrong() {
 /* 📖 GO TO PAGE 2 */
 function goPage2() {
   changeBG("bg2.jpg");
-  document.getElementById("book").classList.add("flip");
+
+  document.getElementById("page1").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
 }
 
 /* ⬅ BACK */
@@ -64,8 +66,9 @@ function goBack() {
 /* ➡ GO TO PAGE 3 */
 function goNext() {
   changeBG("bg2.jpg");
-  document.getElementById("page2").style.transform = "rotateY(-180deg)";
-  document.getElementById("page3").style.transform = "rotateY(0deg)";
+
+  document.getElementById("page2").classList.remove("active");
+  document.getElementById("page3").classList.add("active");
 }
 /* ⬅ BACK TO PAGE 2 */
 function backToPage2() {
@@ -78,27 +81,30 @@ function openGift(num) {
   if (num === 1) {
     // open letter
     changeBG("bg3.jpg");
-    document.getElementById("page3").style.transform = "rotateY(-180deg)";
-    document.getElementById("page4").style.transform = "rotateY(0deg)";
+document.getElementById("page3").classList.remove("active");
+document.getElementById("page4").classList.add("active");
   }
 
   if (num === 2) {
   changeBG("bg4.jpg");
-    document.getElementById("page3").style.transform = "rotateY(-180deg)";
-  document.getElementById("page5").style.transform = "rotateY(0deg)";
+
+  document.getElementById("page3").classList.remove("active");
+  document.getElementById("page5").classList.add("active");
   }
 
   if (num === 3) {
   changeBG("messi.jpg");
-    document.getElementById("page3").style.transform = "rotateY(-180deg)";
-  document.getElementById("page6").style.transform = "rotateY(0deg)";
+
+  document.getElementById("page3").classList.remove("active");
+  document.getElementById("page6").classList.add("active");
   }
 }
 /* BACK TO GIFTS */
 function backToGifts() {
   changeBG("bg2.jpg");
-  document.getElementById("page3").style.transform = "rotateY(0deg)";
-  document.getElementById("page4").style.transform = "rotateY(180deg)";
+
+  document.getElementById("page4").classList.remove("active");
+  document.getElementById("page3").classList.add("active");
 }
 /* 🎂 CREATE CAKE */
 function createCake() {
@@ -141,8 +147,9 @@ function blowCandles() {
 /* ⬅ BACK */
 function backToGiftsFromCake() {
   changeBG("bg2.jpg");
-  document.getElementById("page3").style.transform = "rotateY(0deg)";
-  document.getElementById("page5").style.transform = "rotateY(180deg)";
+
+document.getElementById("page5").classList.remove("active");
+  document.getElementById("page3").classList.add("active");
 }
 /* ⚽ PLAY MESSI */
 function playMessi() {
@@ -192,8 +199,9 @@ function playMessi() {
 /* ⬅ BACK */
 function backToGiftsFromMessi() {
   changeBG("bg2.jpg");
-  document.getElementById("page3").style.transform = "rotateY(0deg)";
-  document.getElementById("page6").style.transform = "rotateY(180deg)";
+
+  document.getElementById("page6").classList.remove("active");
+  document.getElementById("page3").classList.add("active");
 }
 
 /* 🏠 HOME */
