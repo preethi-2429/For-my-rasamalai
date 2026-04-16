@@ -1,39 +1,47 @@
-let code = "";
+let pin = "";
+const correct = "2429";
 
+/* ENTER NUMBER */
 function press(num) {
-  if (code.length < 4) {
-    code += num;
-    updateDots();
+  if (pin.length < 4) {
+    pin += num;
+    updateUI();
   }
 }
 
-function updateDots() {
-  document.getElementById("dots").innerHTML = "●".repeat(code.length);
+/* UPDATE BOXES */
+function updateUI() {
+  for (let i = 0; i < 4; i++) {
+    document.getElementById("d" + (i + 1)).innerText = pin[i] || "";
+  }
 }
 
-function clearCode() {
-  code = code.slice(0, -1);
-  updateDots();
+/* CLEAR */
+function clearPin() {
+  pin = "";
+  updateUI();
 }
 
-function submitCode() {
-  if (code === "2429") {
-    document.getElementById("lockscreen").classList.add("hidden");
-    document.getElementById("giftpage").classList.remove("hidden");
+/* CHECK PASSWORD */
+function checkPin() {
+  if (pin === correct) {
+    document.getElementById("nextBtn").classList.remove("hidden");
+    document.getElementById("error").innerText = "";
   } else {
-    document.getElementById("msg").innerText = "Acho Wrong passcode Pattu🤌🏻";
-    code = "";
-    updateDots();
+    wrong();
   }
 }
 
-/* Gift flow */
-function nextStep() {
-  document.getElementById("giftpage").classList.add("hidden");
-  document.getElementById("cakepage").classList.remove("hidden");
-}
+/* WRONG */
+function wrong() {
+  document.getElementById("error").innerText =
+    "Achoo!! Its wrong sweetheart😭";
 
-function nextStep2() {
-  document.getElementById("messagepage").classList.add("hidden");
-  document.getElementById("messipage").classList.remove("hidden");
+  document.querySelector(".container").classList.add("shake");
+
+  setTimeout(() => {
+    document.querySelector(".container").classList.remove("shake");
+  }, 300);
+
+  clearPin();
 }
