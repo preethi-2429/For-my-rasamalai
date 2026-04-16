@@ -21,17 +21,49 @@
 <!-- 🔐 PAGE 1 -->
 <div class="page active" id="page1">
   <div class="container">
-    <!-- your lock content -->
+
+    <h2 class="title">
+      This greeting card is specially made for you by your love 💗<br>
+      Unlock to reveal it
+    </h2>
+
+    <div class="pin-box">
+      <div class="digit" id="d1"></div>
+      <div class="digit" id="d2"></div>
+      <div class="digit" id="d3"></div>
+      <div class="digit" id="d4"></div>
+    </div>
+
+    <p id="error" class="error"></p>
+
+    <div class="keypad">
+      <button onclick="press(1)">1</button>
+      <button onclick="press(2)">2</button>
+      <button onclick="press(3)">3</button>
+      <button onclick="press(4)">4</button>
+      <button onclick="press(5)">5</button>
+      <button onclick="press(6)">6</button>
+      <button onclick="press(7)">7</button>
+      <button onclick="press(8)">8</button>
+      <button onclick="press(9)">9</button>
+      <button onclick="clearPin()">⌫</button>
+      <button onclick="press(0)">0</button>
+      <button onclick="checkPin()">✔</button>
+    </div>
+
+    <p class="hint">Hint: Its our password 🌹</p>
+
+    <button id="nextBtn" class="next hidden" onclick="goPage2()">Next ➝</button>
+
   </div>
 </div>
-
 <!-- 💌 PAGE 2 -->
 <div class="page" id="page2">
   <div class="container">
     <h2>Unakaga na konjam gifts lam ready panniruken 💗</h2>
 
     <div class="nav-buttons">
-      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="goHome()">⬅ Back</button>
       <button onclick="goNext()">Next ➝</button>
     </div>
   </div>
@@ -98,11 +130,8 @@
     <div id="messiText"></div>
 
     <div class="nav-buttons">
-      <button onclick="backToGiftsFromMessi()">⬅ Back</button>
-      <button onclick="goHome()">Home</button>
-
-</div>
-
+      <button onclick="backToGiftsFromMessi()">⬅Back</button>
+      <button onclick="goHome()">Home</button></div>
 </div> 
 </div>
 
@@ -110,19 +139,6 @@
 <audio id="messiAudio">
   <source src="messi-audio.mp3" type="audio/mp3">
 </audio>
-
-    <!-- 🎁 GIFT BOXES -->
-    <div class="gifts">
-
-      <div class="gift" onclick="openGift(1)">🎁</div>
-      <div class="gift" onclick="openGift(2)">🎁</div>
-      <div class="gift" onclick="openGift(3)">🎁</div>
-
-    </div>
-
-    <div class="nav-buttons">
-      <button onclick="backToPage2()">⬅ Back</button>
-    </div>
 
   </div>
 </div>
