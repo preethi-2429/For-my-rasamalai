@@ -82,3 +82,8 @@ function openGift(num) {
     alert("Special coming next 😌");
   }
 }
+/* BACK TO GIFTS */
+function backToGifts() {
+  document.getElementById("page3").style.transform = "rotateY(0deg)";
+  document.getElementById("page4").style.transform = "rotateY(180deg)";
+}
