@@ -12,50 +12,70 @@
 
 <body>
 
-<!-- 🌸 BACKGROUND -->
-<div class="bg"></div>
-<div class="overlay"></div>
+<!-- 📖 BOOK CONTAINER -->
+<div class="book" id="book">
 
-<!-- 💖 LOCK SCREEN -->
-<div class="container">
+  <!-- 🔐 PAGE 1 (LOCK) -->
+  <div class="page front" id="page1">
 
-  <h2 class="title">
-    This greeting card is specially made for you by your love 💗<br>
-    Unlock to reveal it
-  </h2>
+    <div class="bg"></div>
+    <div class="overlay"></div>
 
-  <!-- PIN BOXES -->
-  <div class="pin-box">
-    <div class="digit" id="d1"></div>
-    <div class="digit" id="d2"></div>
-    <div class="digit" id="d3"></div>
-    <div class="digit" id="d4"></div>
+    <div class="container">
+      <h2 class="title">
+        This greeting card is specially made for you by your love 💗<br>
+        Unlock to reveal it
+      </h2>
+
+      <div class="pin-box">
+        <div class="digit" id="d1"></div>
+        <div class="digit" id="d2"></div>
+        <div class="digit" id="d3"></div>
+        <div class="digit" id="d4"></div>
+      </div>
+
+      <p id="error" class="error"></p>
+
+      <div class="keypad">
+        <button onclick="press(1)">1</button>
+        <button onclick="press(2)">2</button>
+        <button onclick="press(3)">3</button>
+        <button onclick="press(4)">4</button>
+        <button onclick="press(5)">5</button>
+        <button onclick="press(6)">6</button>
+        <button onclick="press(7)">7</button>
+        <button onclick="press(8)">8</button>
+        <button onclick="press(9)">9</button>
+        <button onclick="clearPin()">⌫</button>
+        <button onclick="press(0)">0</button>
+        <button onclick="checkPin()">✔</button>
+      </div>
+
+      <p class="hint">Hint: Its our password 🌹</p>
+
+      <button id="nextBtn" class="next hidden" onclick="goPage2()">Next ➝</button>
+    </div>
   </div>
 
-  <!-- ERROR MESSAGE -->
-  <p id="error" class="error"></p>
+  <!-- 💌 PAGE 2 -->
+  <div class="page back" id="page2">
 
-  <!-- DIAL PAD -->
-  <div class="keypad">
-    <button onclick="press(1)">1</button>
-    <button onclick="press(2)">2</button>
-    <button onclick="press(3)">3</button>
-    <button onclick="press(4)">4</button>
-    <button onclick="press(5)">5</button>
-    <button onclick="press(6)">6</button>
-    <button onclick="press(7)">7</button>
-    <button onclick="press(8)">8</button>
-    <button onclick="press(9)">9</button>
-    <button onclick="clearPin()">⌫</button>
-    <button onclick="press(0)">0</button>
-    <button onclick="checkPin()">✔</button>
+    <div class="bg2"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+      <h2>
+        Unakaga na konjam gifts lam ready panniruken 💗<br>
+        I hope it'll make you happy thango 🥹
+      </h2>
+
+      <div class="nav-buttons">
+        <button onclick="goBack()">⬅ Back</button>
+        <button onclick="goNext()">Next ➝</button>
+      </div>
+    </div>
+
   </div>
-
-  <!-- HINT -->
-  <p class="hint">Hint: Its our password 🌹</p>
-
-  <!-- NEXT BUTTON -->
-  <button id="nextBtn" class="next hidden">Next ➝</button>
 
 </div>
 
