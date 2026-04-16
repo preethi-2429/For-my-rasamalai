@@ -55,7 +55,26 @@ function goBack() {
   document.getElementById("book").classList.remove("flip");
 }
 
-/* ➡ NEXT (for next step) */
+/* ➡ GO TO PAGE 3 */
 function goNext() {
-  alert("Next page (gift boxes) coming 💖");
+  document.getElementById("page2").style.transform = "rotateY(-180deg)";
+  document.getElementById("page3").style.transform = "rotateY(0deg)";
+}
+/* ⬅ BACK TO PAGE 2 */
+function backToPage2() {
+  document.getElementById("page2").style.transform = "rotateY(0deg)";
+  document.getElementById("page3").style.transform = "rotateY(180deg)";
+}
+
+/* 🎁 OPEN GIFT */
+function openGift(num) {
+  if (num === 1) {
+    alert("Gift 1 (Letter) coming 💌");
+  }
+  if (num === 2) {
+    alert("Gift 2 (Cake) coming 🎂");
+  }
+  if (num === 3) {
+    alert("Gift 3 (Messi) coming ⚽");
+  }
 }
