@@ -75,7 +75,8 @@ function openGift(num) {
   }
 
   if (num === 2) {
-    alert("Cake coming next 🎂");
+  document.getElementById("page3").style.transform = "rotateY(-180deg)";
+  document.getElementById("page5").style.transform = "rotateY(0deg)";
   }
 
   if (num === 3) {
@@ -86,4 +87,47 @@ function openGift(num) {
 function backToGifts() {
   document.getElementById("page3").style.transform = "rotateY(0deg)";
   document.getElementById("page4").style.transform = "rotateY(180deg)";
+}
+/* 🎂 CREATE CAKE */
+function createCake() {
+  let age = document.getElementById("ageInput").value;
+  let area = document.getElementById("cakeArea");
+
+  if (!age || age <= 0) return;
+
+  area.innerHTML = '<div class="cake" id="cake"></div>';
+
+  let cake = document.getElementById("cake");
+
+  for (let i = 0; i < age; i++) {
+    let candle = document.createElement("div");
+    candle.className = "candle";
+
+    candle.style.left = (10 + i * 10) + "px";
+
+    let flame = document.createElement("div");
+    flame.className = "flame";
+
+    candle.appendChild(flame);
+    cake.appendChild(candle);
+  }
+
+  cake.onclick = blowCandles;
+}
+
+/* 💨 BLOW */
+function blowCandles() {
+  let flames = document.querySelectorAll(".flame");
+
+  flames.forEach(f => f.remove());
+
+  setTimeout(() => {
+    alert("May all your wish comes true with success 🥺💙");
+  }, 300);
+}
+
+/* ⬅ BACK */
+function backToGiftsFromCake() {
+  document.getElementById("page3").style.transform = "rotateY(0deg)";
+  document.getElementById("page5").style.transform = "rotateY(180deg)";
 }
