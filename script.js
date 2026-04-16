@@ -80,7 +80,8 @@ function openGift(num) {
   }
 
   if (num === 3) {
-    alert("Special coming next 😌");
+  document.getElementById("page3").style.transform = "rotateY(-180deg)";
+  document.getElementById("page6").style.transform = "rotateY(0deg)";
   }
 }
 /* BACK TO GIFTS */
@@ -130,4 +131,44 @@ function blowCandles() {
 function backToGiftsFromCake() {
   document.getElementById("page3").style.transform = "rotateY(0deg)";
   document.getElementById("page5").style.transform = "rotateY(180deg)";
+}
+/* ⚽ PLAY MESSI */
+function playMessi() {
+  let audio = document.getElementById("messiAudio");
+  let textBox = document.getElementById("messiText");
+
+  audio.play();
+  textBox.innerHTML = "";
+
+  let lines = [
+    "Hi Hrithik...",
+    "it's Leo.",
+    "Happy birthday, from the bottom of my heart.",
+    "I want to thank you for all the love.",
+    "I hope you have an amazing day...",
+    "Sending you a big hug.",
+    "Visca el Barça! 💙❤️"
+  ];
+
+  let i = 0;
+
+  let interval = setInterval(() => {
+    if (i < lines.length) {
+      textBox.innerHTML += lines[i] + "<br>";
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 1500);
+}
+
+/* ⬅ BACK */
+function backToGiftsFromMessi() {
+  document.getElementById("page3").style.transform = "rotateY(0deg)";
+  document.getElementById("page6").style.transform = "rotateY(180deg)";
+}
+
+/* 🏠 HOME */
+function goHome() {
+  location.reload();
 }
