@@ -45,3 +45,17 @@ function wrong() {
 
   clearPin();
 }
+/* 📖 GO TO PAGE 2 */
+function goPage2() {
+  document.getElementById("book").classList.add("flip");
+}
+
+/* ⬅ BACK */
+function goBack() {
+  document.getElementById("book").classList.remove("flip");
+}
+
+/* ➡ NEXT (for next step) */
+function goNext() {
+  alert("Next page (gift boxes) coming 💖");
+}
