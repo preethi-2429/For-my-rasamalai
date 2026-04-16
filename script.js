@@ -50,6 +50,12 @@ function wrong() {
 
   clearPin();
 }
+function backToPage2() {
+  changeBG("bg2.jpg");
+
+  document.getElementById("page3").classList.remove("active");
+  document.getElementById("page2").classList.add("active");
+}
 /* 📖 GO TO PAGE 2 */
 function goPage2() {
   changeBG("bg2.jpg");
@@ -58,22 +64,12 @@ function goPage2() {
   document.getElementById("page2").classList.add("active");
 }
 
-/* ⬅ BACK */
-function goBack() {
-  document.getElementById("book").classList.remove("flip");
-}
-
 /* ➡ GO TO PAGE 3 */
 function goNext() {
   changeBG("bg2.jpg");
 
   document.getElementById("page2").classList.remove("active");
   document.getElementById("page3").classList.add("active");
-}
-/* ⬅ BACK TO PAGE 2 */
-function backToPage2() {
-  document.getElementById("page2").style.transform = "rotateY(0deg)";
-  document.getElementById("page3").style.transform = "rotateY(180deg)";
 }
 
 /* 🎁 OPEN GIFT */
