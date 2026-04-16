@@ -119,3 +119,64 @@ body {
   75% { transform: translateX(-8px); }
   100% { transform: translateX(0); }
 }
+/* 📖 BOOK */
+.book {
+  width: 100%;
+  height: 100vh;
+  perspective: 1500px;
+  position: relative;
+}
+
+/* PAGE BASE */
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 1s ease;
+}
+
+/* FRONT PAGE */
+.front {
+  z-index: 2;
+}
+
+/* BACK PAGE */
+.back {
+  transform: rotateY(180deg);
+}
+
+/* FLIP EFFECT */
+.book.flip .front {
+  transform: rotateY(-180deg);
+}
+
+.book.flip .back {
+  transform: rotateY(0deg);
+}
+
+/* SECOND BACKGROUND */
+.bg2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("assets/bg2.jpg") center/cover no-repeat;
+  z-index: -2;
+}
+
+/* NAV BUTTONS */
+.nav-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
