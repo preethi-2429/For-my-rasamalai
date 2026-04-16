@@ -139,10 +139,18 @@ function backToGiftsFromCake() {
 }
 /* ⚽ PLAY MESSI */
 function playMessi() {
-  let audio = document.getElementById("messiAudio");
+  let messiAudio = document.getElementById("messiAudio");
+  let bgMusic = document.getElementById("bgMusic");
   let textBox = document.getElementById("messiText");
 
-  audio.play();
+  /* 🔉 Lower background music */
+  if (bgMusic) {
+    bgMusic.volume = 0.1;
+  }
+
+  messiAudio.currentTime = 0;
+  messiAudio.play();
+
   textBox.innerHTML = "";
 
   let lines = [
@@ -165,6 +173,13 @@ function playMessi() {
       clearInterval(interval);
     }
   }, 1500);
+
+  /* 🔊 Restore music after Messi finishes */
+  messiAudio.onended = function () {
+    if (bgMusic) {
+      bgMusic.volume = 0.3;
+    }
+  };
 }
 
 /* ⬅ BACK */
