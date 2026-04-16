@@ -180,3 +180,31 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+/* 🎁 GIFT CONTAINER */
+.gifts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* 🎁 GIFT BOX */
+.gift {
+  width: 120px;
+  height: 120px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: auto;
+}
+
+/* ✨ HOVER EFFECT */
+.gift:hover {
+  transform: scale(1.1);
+  background: rgba(255,255,255,0.3);
+}
