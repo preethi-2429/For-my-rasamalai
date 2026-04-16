@@ -52,6 +52,7 @@ function wrong() {
 }
 /* 📖 GO TO PAGE 2 */
 function goPage2() {
+  changeBG("bg2.jpg");
   document.getElementById("book").classList.add("flip");
 }
 
@@ -62,6 +63,7 @@ function goBack() {
 
 /* ➡ GO TO PAGE 3 */
 function goNext() {
+  changeBG("bg2.jpg");
   document.getElementById("page2").style.transform = "rotateY(-180deg)";
   document.getElementById("page3").style.transform = "rotateY(0deg)";
 }
@@ -75,22 +77,26 @@ function backToPage2() {
 function openGift(num) {
   if (num === 1) {
     // open letter
+    changeBG("bg3.jpg");
     document.getElementById("page3").style.transform = "rotateY(-180deg)";
     document.getElementById("page4").style.transform = "rotateY(0deg)";
   }
 
   if (num === 2) {
-  document.getElementById("page3").style.transform = "rotateY(-180deg)";
+  changeBG("bg4.jpg");
+    document.getElementById("page3").style.transform = "rotateY(-180deg)";
   document.getElementById("page5").style.transform = "rotateY(0deg)";
   }
 
   if (num === 3) {
-  document.getElementById("page3").style.transform = "rotateY(-180deg)";
+  changeBG("messi.jpg");
+    document.getElementById("page3").style.transform = "rotateY(-180deg)";
   document.getElementById("page6").style.transform = "rotateY(0deg)";
   }
 }
 /* BACK TO GIFTS */
 function backToGifts() {
+  changeBG("bg2.jpg");
   document.getElementById("page3").style.transform = "rotateY(0deg)";
   document.getElementById("page4").style.transform = "rotateY(180deg)";
 }
@@ -134,6 +140,7 @@ function blowCandles() {
 
 /* ⬅ BACK */
 function backToGiftsFromCake() {
+  changeBG("bg2.jpg");
   document.getElementById("page3").style.transform = "rotateY(0deg)";
   document.getElementById("page5").style.transform = "rotateY(180deg)";
 }
@@ -184,6 +191,7 @@ function playMessi() {
 
 /* ⬅ BACK */
 function backToGiftsFromMessi() {
+  changeBG("bg2.jpg");
   document.getElementById("page3").style.transform = "rotateY(0deg)";
   document.getElementById("page6").style.transform = "rotateY(180deg)";
 }
@@ -193,3 +201,6 @@ function goHome() {
   location.reload();
 }
 let musicStarted = false;
+function changeBG(image) {
+  document.querySelector(".bg").style.backgroundImage = `url('${image}')`;
+}
