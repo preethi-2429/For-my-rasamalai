@@ -208,3 +208,25 @@ body {
   transform: scale(1.1);
   background: rgba(255,255,255,0.3);
 }
+/* 💌 LETTER STYLE */
+.letter {
+  background: rgba(255,255,255,0.85);
+  color: black;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
+  max-height: 60vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
+}
+
+.letter h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.letter p {
+  font-size: 14px;
+  line-height: 1.6;
+}
