@@ -69,12 +69,16 @@ function backToPage2() {
 /* 🎁 OPEN GIFT */
 function openGift(num) {
   if (num === 1) {
-    alert("Gift 1 (Letter) coming 💌");
+    // open letter
+    document.getElementById("page3").style.transform = "rotateY(-180deg)";
+    document.getElementById("page4").style.transform = "rotateY(0deg)";
   }
+
   if (num === 2) {
-    alert("Gift 2 (Cake) coming 🎂");
+    alert("Cake coming next 🎂");
   }
+
   if (num === 3) {
-    alert("Gift 3 (Messi) coming ⚽");
+    alert("Special coming next 😌");
   }
 }
