@@ -241,12 +241,13 @@ body {
 
 /* 🎂 CAKE */
 .cake {
-  width: 200px;
-  height: 100px;
-  background: #ffb6c1;
-  border-radius: 20px;
+  width: 220px;
+  height: 120px;
+  background: linear-gradient(to top, #ff9bb3, #ffc0cb);
+  border-radius: 20px 20px 10px 10px;
   position: relative;
-  margin: auto;
+  margin: 20px auto;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* 🕯️ CANDLES */
