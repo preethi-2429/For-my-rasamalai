@@ -127,7 +127,6 @@ candle.style.top = (-20 - Math.random() * 10) + "px";
     cake.appendChild(candle);
   }
 
-  cake.onclick = blowCandles;
 }
 
 /* 💨 BLOW */
