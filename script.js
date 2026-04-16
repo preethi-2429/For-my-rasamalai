@@ -3,6 +3,11 @@ const correct = "2429";
 
 /* ENTER NUMBER */
 function press(num) {
+  if (!musicStarted) {
+  document.getElementById("bgMusic").play();
+  musicStarted = true;
+    document.getElementById("bgMusic").volume = 0.3;
+  }
   if (pin.length < 4) {
     pin += num;
     updateUI();
@@ -172,3 +177,4 @@ function backToGiftsFromMessi() {
 function goHome() {
   location.reload();
 }
+let musicStarted = false;
