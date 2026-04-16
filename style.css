@@ -230,3 +230,52 @@ body {
   font-size: 14px;
   line-height: 1.6;
 }
+/* 🎂 AGE INPUT */
+.age-box {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+  text-align: center;
+}
+
+/* 🎂 CAKE BASE */
+#cakeArea {
+  margin-top: 20px;
+}
+
+/* 🎂 CAKE */
+.cake {
+  width: 200px;
+  height: 100px;
+  background: #ffb6c1;
+  border-radius: 20px;
+  position: relative;
+  margin: auto;
+}
+
+/* 🕯️ CANDLES */
+.candle {
+  width: 6px;
+  height: 30px;
+  background: white;
+  position: absolute;
+  top: -30px;
+}
+
+/* 🔥 FLAME */
+.flame {
+  width: 10px;
+  height: 10px;
+  background: orange;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -2px;
+  animation: flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.2); opacity: 0.7; }
+}
