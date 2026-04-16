@@ -1,4 +1,4 @@
-body {
+.body {
   margin: 0;
   font-family: 'Baloo 2', cursive;
   overflow: hidden;
@@ -141,29 +141,12 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
+  display: none;   /* 🔥 IMPORTANT */
+}
+.page.active {
+  display: flex;
 }
 
-/* FRONT PAGE */
-.front {
-  z-index: 2;
-}
-
-/* BACK PAGE */
-.back {
-  transform: rotateY(180deg);
-}
-
-/* FLIP EFFECT */
-.book.flip .front {
-  transform: rotateY(-180deg);
-}
-
-.book.flip .back {
-  transform: rotateY(0deg);
-}
 
 /* SECOND BACKGROUND */
 .bg2 {
