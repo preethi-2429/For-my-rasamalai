@@ -383,3 +383,27 @@ input {
 .hint {
   font-size: 22px !important;
 }
+@keyframes paperOpen {
+  0% {
+    transform: scale(0.6) rotateX(20deg);
+    opacity: 0;
+    filter: blur(8px);
+  }
+
+  60% {
+    transform: scale(1.05) rotateX(0deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+
+  100% {
+    transform: scale(1) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* 💌 APPLY ANIMATION */
+.paper-open {
+  animation: paperOpen 0.9s ease-out;
+  transform-origin: center;
+}
