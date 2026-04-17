@@ -263,13 +263,31 @@ button:hover {
 
 /* 🎂 CAKE */
 .cake {
-  width: 440px;
-  height: 240px;
-  background: linear-gradient(to top, #ff9bb3, #ffc0cb);
-  border-radius: 20px 20px 10px 10px;
+  width: 320px;
+  height: 160px;
+  background: linear-gradient(to top, #ff9db5, #ffd1dc);
+  border-radius: 30px;
+  margin: 40px auto;
   position: relative;
-  margin: 20px auto;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* 🍰 cream layer */
+.cake::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 10px,
+    #ffe6f0 10px,
+    #ffe6f0 20px
+  );
+  border-radius: 50px;
 }
 
 /* 🕯️ CANDLES */
@@ -346,7 +364,9 @@ p {
 
 /* 🔘 ALL BUTTON TEXT BIGGER */
 button {
-  font-size: 26px !important;
+  font-size: 48px !important;
+  padding: 20px 30px;
+  border-radius: 25px;
 }
 
 /* 🔢 KEYPAD EXTRA BIG */
@@ -407,3 +427,12 @@ input {
   animation: paperOpen 0.9s ease-out;
   transform-origin: center;
 }
+body {
+  font-size: 48px !important;
+}
+
+/* EVERYTHING becomes heading-level */
+p, h1, h2, h3, button, input, .hint, .error {
+  font-size: 48px !important;
+  line-height: 1.2 !important;
+    }
