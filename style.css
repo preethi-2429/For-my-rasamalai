@@ -71,11 +71,15 @@ button {
 
 /* 🔢 KEYPAD BUTTONS (bigger & round) */
 .keypad button {
-  width: 90px;
-  height: 90px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   font-size: 32px;
-  margin: 6px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* ⬅ NAV BUTTONS (wider rectangular) */
@@ -124,9 +128,11 @@ button:hover {
 /* KEYPAD */
 .keypad {
   display: grid;
-  grid-template-columns: repeat(3, 70px);
-  gap: 10px;
-  margin-top: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;   /* BIG spacing between buttons */
+  margin-top: 20px;
+  width: 320px;
+  justify-items: center;
 }
 
 /* HINT */
