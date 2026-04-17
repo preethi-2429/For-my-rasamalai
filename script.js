@@ -116,8 +116,11 @@ function createCake() {
   for (let i = 0; i < age; i++) {
     let candle = document.createElement("div");
     candle.className = "candle";
+let spacing = 300 / age;
 
-    candle.style.left = Math.random() * 180 + "px";
+candle.style.left = (i * spacing) + "px";
+candle.style.top = "-40px";
+
 candle.style.top = (-20 - Math.random() * 10) + "px";
 
     let flame = document.createElement("div");
