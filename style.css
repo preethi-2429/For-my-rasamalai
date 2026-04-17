@@ -42,16 +42,19 @@ body {
 
 /* MAIN */
 .container {
-  width: 100%;
-  height: 100vh;
+  width: 90%;
+  max-width: 950px;
+  min-height: 90vh;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   color: white;
-  padding: 20px;
-  z-index: 2;
+  padding: 40px;
   position: relative;
+  z-index: 2;
 }
 button {
   font-size: 22px;
